@@ -13,19 +13,19 @@
     <img src="./assets/pokeball.svg" alt="logo">
     <h1>Pokedex</h1>
     <div>
-      <li><a href="">Home</a></li>
-      <li><a href="">History</a></li>
-      <li><a href="">Videos</a></li>
+      <li><a href="./home.html">Home</a></li>
+      <li><a href="#history">History</a></li>
+      <li><a href="#video">Videos</a></li>
       <li><a href="">Pokedex</a></li>
       <li><a href="">My favs</a></li>
     </div>
   </header>
-  <section class="hero">
+  <section id="hero">
     <img src="./assets/pikachu.png" alt="pikachu">
     <div>
     <h1>Welcome to Pokedex</h1>
     <p>Join our community to find Pokémon's news.</p>
-    <button >View more</button>
+    <a href="#history"><button>View more</button></a> 
     </div>
   </section>
   <!--
@@ -37,19 +37,59 @@
     </svg>
   </div>
 
-  <section class="history">
-    <h2>Pokemon History</h2>
-    <h2>1980</h2>
+  <section id="history">
+    <h2 class="titleHistory">Pokemon History</h2>
+    <div class="icons">
+    <h2><img src="./assets/pokeball-icon.svg" alt="pokeball"> 1980</h2>
+    </div>
+    <div class="history first-steps">
     <h3>First steps</h3>
     <p> Pokémon is short for “Pocket Monsters", the original Japanese name. The franchise has its roots in a gaming magazine in the early 1980s in Japan—Game Freak, started by Satoshi Tajiri and Ken Sugimori. Tajiri was the writer, while Sugimori was the illustrator.</p>
+    </div>
+    <div class="icons">
     <h2>1996</h2>
+    </div>
+    <div class="history game-boy">
     <h3>Game Boy</h3> 
     <p> 26 February 1996 marks the debut of the Pokémon franchise in the form of both those games on the Game Boy in Japan. At its heart, Pocket Monsters: Red and Green was a very basic Japanese role-playing game.</p>
+    </div>
+    <div class="history icons">
     <h2>1998</h2>
+    </div>
+    <div class="pikachu">
+
     <h3>Pikachu</h3> 
     <p> The popularity of the anime and Yellow, I believe, led to Pikachu becoming the most recognizable and loved Pokémon out there. Pocket Monsters’ success led to North America getting the games in 1998 for the Game Boy (as Pokémon Red and Blue). These few years in the public saw Pokémon go from a game about a hobby to a worldwide phenomenon</p>
-    </section>
-  
+    </div>
+  </section>
+  <section id="video">
+    
+      <div style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #08f;"></path></svg></div>
+      <div class="contentvideo">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/c2edLO4GxGs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <div class="textvideo">
+      <h2>Chekout the Official Pokémon YouTube channel</h2>
+      <a href="https://www.youtube.com/channel/UCFctpiB_Hnlk3ejWfHqSm6Q"><button>View more </button></a>
+      </div>
+    </div>
+    
+      <div style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M0.00,49.98 C149.99,150.00 271.49,-49.98 500.00,49.98 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: #08f;"></path></svg></div>
+    
+  </section>
+  <section id="contactus">
+    <h2>Contac us</h2>
+    <form action="">
+      <input type="text" id="fname" name="name" placeholder="Name">
+      <input type="email" id="email" name="email" placeholder="Email address" required="required">
+      <input type="text" id="subj" name="subject" placeholder="Subject">
+      <textarea id="subject" name="subject" placeholder="Subject" style="height:170px"></textarea>
+      <input type="submit" value="Send" class="submit">
+    </form>
+
+  </section>
+  <footer>
+    <p>Made with <img src="./assets/heart.svg" alt="love"> by Agrofy.</p>
+  </footer>
 
  
 </body>
