@@ -272,14 +272,14 @@ footer {
       margin: 1%; }
     #history h2 {
       font-size: 40px; }
-      #history h2 img {
-        width: 45px;
-        margin: 8%; }
+    #history img {
+      width: 45px; }
     #history .icons {
       width: max-content;
       display: flex;
       align-items: center;
-      justify-content: center; }
+      justify-content: center;
+      margin: 2%; }
     #history .history {
       width: auto;
       justify-content: end; }

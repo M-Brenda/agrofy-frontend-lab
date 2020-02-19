@@ -376,11 +376,9 @@ footer{
 
         h2{
             font-size: 40px;
-
-            img{
-                width: 45px;
-                margin: 8%;
-            }
+        }
+        img{
+            width: 45px;
         }
 
 
@@ -389,6 +387,7 @@ footer{
             display: flex;
             align-items: center;
             justify-content: center;
+            margin: 2%;
         }
         .history{
             width: auto;
