@@ -1,5 +1,14 @@
+@-webkit-keyframes move_ul {
+  from {
+    margin-top: 0%; }
+  to {
+    margin-bottom: 0%; } }
+@keyframes move_ul {
+  from {
+    margin-top: 0%; }
+  to {
+    margin-bottom: 0%; } }
 body {
-  width: 100%;
   font-family: "Montserrat", sans-serif; }
 
 header {
@@ -21,8 +30,6 @@ header {
     z-index: 2; }
   header .iconomenu, header .x {
     margin: 7%; }
-  header .x {
-    color: #777777; }
   header ul {
     list-style-type: none;
     display: none;
@@ -36,16 +43,6 @@ header {
     margin: 5% 0%;
     -webkit-animation: 0.3s linear 0s 1 alternate move_ul;
     animation: 0.3s linear 0s 1 alternate move_ul; }
-@-webkit-keyframes move_ul {
-  from {
-    margin-top: 0%; }
-  to {
-    margin-bottom: 0%; } }
-@keyframes move_ul {
-  from {
-    margin-top: 0%; }
-  to {
-    margin-bottom: 0%; } }
   header input:checked ul {
     display: block; }
   header #logo, header #cierre, header #menu {
@@ -53,16 +50,6 @@ header {
   header input, header .x {
     display: none;
     z-index: 3; }
-  header header {
-    background-color: #ffffff;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    overflow: hidden; }
-  header header i {
-    cursor: pointer;
-    position: fixed;
-    right: 0px; }
   header .check:checked ~ .lista {
     display: block;
     background-color: #FFFFFF;
@@ -88,6 +75,7 @@ header {
   #hero img {
     width: 80%; }
   #hero button {
+    transition: all 3s 1s;
     border-style: none;
     border-radius: 28px;
     background-image: linear-gradient(-90deg, #00F0B8 0%, #01b0e6 100%);
@@ -96,6 +84,8 @@ header {
     font-size: 17px;
     padding: 16px 31px;
     cursor: pointer; }
+    #hero button:hover {
+      background-image: linear-gradient(-90deg, #0000FE 0%, #00F0B8 100%); }
   #hero div {
     margin: 20% 7% 3% 7%;
     align-items: center;
@@ -122,11 +112,11 @@ header {
   #history img {
     width: 10%; }
   #history h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     margin: 0;
-    align-items: center;
-    display: flex;
-    justify-content: center;
     font-size: 35px; }
   #history .first-steps {
     color: #62cab5;
@@ -152,49 +142,50 @@ header {
     align-items: center;
     justify-content: center; }
 
-#video {
+#video .contentvideo {
+  background-color: #08f;
   display: flex;
-  flex-direction: column; }
-  #video .contentvideo {
-    background-color: #08f;
-    display: flex;
-    flex-direction: column;
-    align-items: center; }
-  #video button {
-    border-style: none;
-    border-radius: 28px;
-    background-image: linear-gradient(-90deg, #fbc841 0%, #ed465b 100%);
-    display: inline-block;
-    color: #ffffff;
-    font-size: 17px;
-    padding: 16px 31px;
-    font-family: 'Montserrat', sans-serif;
-    cursor: pointer; }
-  #video iframe {
-    display: flex;
-    width: 90%;
-    height: 100%; }
-  #video .textvideo {
-    display: flex;
-    flex-direction: column;
-    align-items: center; }
-    #video .textvideo h2 {
-      text-align: center;
-      margin: 10% 2%; }
+  flex-direction: column-reverse;
+  align-items: center; }
+#video button {
+  border-style: none;
+  border-radius: 28px;
+  background-image: linear-gradient(-90deg, #fbc841 0%, #ed465b 100%);
+  display: inline-block;
+  color: #ffffff;
+  font-size: 17px;
+  padding: 16px 31px;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer; }
+  #video button:hover {
+    background-image: linear-gradient(-90deg, #ed465b 0%, #fbc841 100%); }
+#video iframe {
+  display: flex;
+  width: 95%;
+  height: 200px; }
+#video .textvideo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5%; }
+  #video .textvideo h2 {
+    text-align: center;
+    margin: 5% 2%;
+    color: #FFFFFF; }
 
 #contactus {
+  margin-top: -80px;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  margin-top: -80px; }
+  flex-direction: column; }
   #contactus h2 {
     color: #08f; }
   #contactus form {
     display: flex;
     flex-direction: column;
-    width: 90%;
     justify-content: center;
+    width: 90%;
     margin: 2%; }
     #contactus form input, #contactus form textarea {
       border-radius: 20px;
@@ -212,6 +203,8 @@ header {
       color: #FFFFFF;
       background-image: linear-gradient(-90deg, #00F0B8 0%, #01b0e6 100%);
       cursor: pointer; }
+      #contactus form .submit:hover {
+        background-image: linear-gradient(-90deg, #0000FE 0%, #00F0B8 100%); }
 
 footer {
   background-color: #42494c;
@@ -241,13 +234,17 @@ footer {
     top: 4.5%; }
 
   #hero {
-    background-color: #f0e482;
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: 100%;
-    align-items: center;
     justify-content: center;
     padding-top: 7%; }
+    #hero img {
+      width: auto;
+      height: 400px;
+      margin: auto;
+      grid-column: 1/2;
+      grid-row: 1; }
     #hero div {
       text-align: center;
       margin: 0% 15% 25% 0%; }
@@ -260,43 +257,24 @@ footer {
         grid-row: 1; }
       #hero div p {
         margin: 5%; }
-    #hero img {
-      width: auto;
-      height: 400px;
-      margin: auto;
-      grid-column: 1/2;
-      grid-row: 1; }
 
   .courve {
     margin-top: -150px; }
 
   #history {
     margin: -60px 55px 55px 55px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 1%;
-    /*div{
-        //margin: 1% 1% 1% 25%;
-        width: 70%;
-    }*/ }
-    #history .titleHistory {
-      text-align: center; }
-    #history h2 {
-      margin: 0;
-      align-items: center;
-      display: flex;
-      justify-content: center;
-      font-size: 40px; }
-      #history h2 img {
-        width: 45px;
-        margin: 8%; }
+    margin: 1%; }
     #history .contenedor {
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
       margin: 1%; }
+    #history h2 {
+      font-size: 40px; }
+      #history h2 img {
+        width: 45px;
+        margin: 8%; }
     #history .icons {
       width: max-content;
       display: flex;
@@ -305,9 +283,6 @@ footer {
     #history .history {
       width: auto;
       justify-content: end; }
-    #history p {
-      font-size: 17px;
-      line-height: 30px; }
 
   #video .contentvideo {
     display: grid;
@@ -323,15 +298,11 @@ footer {
       grid-column: 2/3;
       grid-row: 1/2;
       width: 55%;
-      margin: auto 30% auto auto;
-      text-align: center; }
-      #video .contentvideo .textvideo h2 {
-        color: #FFFFFF; }
+      margin: auto 30% auto auto; }
 
   #contactus {
     margin-top: -100px; }
     #contactus h2 {
-      color: #08f;
       margin: 3% 1% 1% 1%; }
     #contactus form {
       width: 400px;
@@ -370,7 +341,6 @@ footer {
     body header h1 {
       margin: 1%; }
     body header li {
-      list-style-type: none;
       font-weight: 500; }
     body header a {
       text-decoration: none; }
@@ -379,33 +349,13 @@ footer {
       align-items: center;
       margin: 1%; }
     body #hero {
-      background-color: #f0e482;
       display: grid;
       grid-template-columns: 50% 50%;
       grid-template-rows: 100%;
-      align-items: center;
       justify-content: center;
       padding-top: 7%; }
       body #hero div {
-        text-align: center;
         margin: 0% 15% 25% 0%; }
-        body #hero div h1 {
-          font-size: 50px; }
-        body #hero div h1, body #hero div p, body #hero div button {
-          margin: 0%;
-          grid-column: 2/3;
-          font-family: 'Montserrat', sans-serif;
-          grid-row: 1; }
-        body #hero div p {
-          margin: 5%; }
-      body #hero img {
-        width: auto;
-        height: 400px;
-        margin: auto;
-        grid-column: 1/2;
-        grid-row: 1; }
-    body .courve {
-      margin-top: -150px; }
     body #video iframe {
       width: 550px;
       height: 300px; }
