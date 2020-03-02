@@ -2,10 +2,10 @@ body .esconder {
   display: none; }
 body header {
   background-color: #FFFFFF;
-  position: absolute;
-  top: 0; }
+  top: 0;
+  width: 100%; }
 body #search {
-  margin-top: 8%;
+  margin-top: 6%;
   display: flex;
   align-items: center;
   flex-direction: column; }
@@ -36,6 +36,7 @@ body #search {
 body p {
   color: #000000; }
 body #pokemons {
+  width: 100%;
   display: grid;
   grid-template-columns: 250px 250px 250px 250px;
   grid-gap: 35px;

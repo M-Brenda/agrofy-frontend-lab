@@ -6,11 +6,12 @@ body{
     }
     header{
         background-color: #FFFFFF;
-        position: absolute;
-        top: 0;
+        //position: absolute;
+        top: 0; 
+        width: 100%;
     }
     #search{
-        margin-top: 8%;
+        margin-top: 6%;
         display: flex;
         align-items: center;
         flex-direction: column;
@@ -47,6 +48,7 @@ body{
         color: #000000;
     }
     #pokemons{
+        width: 100%;
         display: grid;  
         grid-template-columns: 250px 250px 250px 250px;
         grid-gap: 35px;
