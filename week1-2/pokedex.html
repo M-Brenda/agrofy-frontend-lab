@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poekdex</title>
+    <link rel = "icon" href = "./assets/pokeball.svg" type = "image/x-icon">
+    <link rel="stylesheet" href="./styles/app.css">
+    <link rel="stylesheet" href="./styles/pokedex.css">
+</head>
+<body>
+        
+    
+    <header id="header">
+        <div class="logotitulo">
+          <img src="./assets/pokeball.svg" alt="logo">
+          <h1>Pokedex</h1>
+        </div>
+        <input type="checkbox" id="btn_menu" class="check">
+        <label class="iconomenu" for="btn_menu"><i id="menu" class="fas fa-bars"></i></label>
+        <label class="x" for="btn_menu"><i id="cierre" class="fas fa-times"></i></label>
+        <ul class="lista">
+          <li><a href="./home.html">Home</a></li>
+          <li><a href="#history">History</a></li>
+          <li><a href="#video">Videos</a></li>
+          <li><a href="">Pokedex</a></li>
+          <li><a href="">My favs</a></li>
+        </ul>
+      </header>
+
+      <section id="search">
+          <h1>Pokemon</h1>
+          <form action="">
+            <input id="mySearch" type="search">
+            <button onclick="tomarInput();">Search</button>
+          </form>
+      </section>
+      <section id="pokemons">
+
+      </section>
+
+
+      
+      <script src="./scripts/script.js"></script>
+</body>
+</html>
