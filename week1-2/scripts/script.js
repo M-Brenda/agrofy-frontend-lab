@@ -1,7 +1,7 @@
 var section = document.getElementById('pokemons');
 let favs = [];
 let pokemon = [];
-
+let myFavs = [];
 function traerpoke(){
 for (let i = 1; i <= 150; i++) {
     const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
@@ -58,27 +58,42 @@ traerpoke();
     contenedor.appendChild(addtofavs);
     contenedor.appendChild(remove);
 
+
     function addfav(){
-      if (localStorage.getItem("favs")!==null) {
-        localStorage.setItem("favs", localStorage.getItem("favs")+ ","+ i);
-      }else
-      localStorage.setItem("favs", i);
-      addtofavs.classList.toggle("esconder");
-      remove.classList.toggle("esconder");
+      myFavs.push(poke.id);
+      console.log(myFavs)
+      localStorage.setItem('myFavs', JSON.stringify(myFavs));
+      verify (myFavs);
   
     }
     
     function removefav(){
-
-      localStorage.removeItem(i);
-      addtofavs.classList.toggle("esconder");
-      remove.classList.toggle("esconder");
+      myFavs.splice( myFavs.indexOf(poke.id), 1 );
+      localStorage.setItem('myFavs', JSON.stringify(myFavs));
+      verify (myFavs);
     }
 
+
+    function verify (myFavs){
+    if (myFavs.includes(poke.id)) {
+      console.log(myFavs)
+      addtofavs.style.display="none";
+      remove.style.display="block";
+      
+    } else {
+      addtofavs.style.display="block";
+      remove.style.display="none";
+    }
+    }
+
+
+
   }
-  
 
 
+  /*var guardado = localStorage.getItem('datos');
+
+  console.log('objetoObtenido: ', JSON.parse(guardado));*/
 
 let btnsearch = document.getElementById("btnsearch");
 btnsearch.addEventListener ("click", 
