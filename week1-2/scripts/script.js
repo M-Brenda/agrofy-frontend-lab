@@ -1,8 +1,10 @@
 var section = document.getElementById('pokemons');
-let favs = [];
 let pokemon = [];
-let myFavs = [];
-function traerpoke(){
+let sectionfav = document.getElementById("myfavs");
+//let myFavs = [];
+let content = document.getElementsByClassName('divcontenedor');
+
+
 for (let i = 1; i <= 150; i++) {
     const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
     fetch(url)
@@ -14,13 +16,14 @@ for (let i = 1; i <= 150; i++) {
                 imagen: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${i}.png`,
                 types: data.types,
               }
-            console.log(poke)
-            pokemon.push(poke)
-            mostrarPoke(poke)
+            console.log(poke);
+            pokemon.push(poke);
+            mostrarPoke(poke);            
+            
         })
+        
   }
-}
-traerpoke();
+
 
   
   function mostrarPoke(poke){
@@ -46,10 +49,11 @@ traerpoke();
     addtofavs.onclick= addfav;
     let remove = document.createElement("button");
     remove.id="remove";
-    remove.classList="esconder";
+    //remove.classList="esconder";
     remove.innerText= "Remove";
     remove.onclick= removefav;
 
+    verify();
     section.appendChild(contenedor);
     contenedor.appendChild(divimg);
     contenedor.appendChild(nombre);
@@ -60,44 +64,71 @@ traerpoke();
 
 
     function addfav(){
-      myFavs.push(poke.id);
-      console.log(myFavs)
-      localStorage.setItem('myFavs', JSON.stringify(myFavs));
-      verify (myFavs);
-  
+      var guard = JSON.parse(localStorage.getItem("myFavs"));
+      console.log(guard);
+      if (guard!==null) {
+        guard= guard + ' ' + poke.id
+        localStorage.setItem('myFavs', JSON.stringify(guard));
+
+
+      }else{
+        guard = poke.id;
+        localStorage.setItem('myFavs', JSON.stringify(guard));
+        var guard = JSON.parse(localStorage.getItem("myFavs"));
+
+      }
+      verify ();
     }
     
     function removefav(){
-      myFavs.splice( myFavs.indexOf(poke.id), 1 );
-      localStorage.setItem('myFavs', JSON.stringify(myFavs));
-      verify (myFavs);
-    }
-
-
-    function verify (myFavs){
-    if (myFavs.includes(poke.id)) {
-      console.log(myFavs)
-      addtofavs.style.display="none";
-      remove.style.display="block";
+      var guard = JSON.parse(localStorage.getItem("myFavs"));
       
-    } else {
-      addtofavs.style.display="block";
+      console.log("eliminar" + guard)
+      for( var i = 0; i < guard.length; i++){
+
+         if ( guard[i] == [poke.id]) { 
+          console.log("INGRESO AL IF")
+          delete guard.i
+          //guard = guard.join(',')
+          localStorage.setItem('myFavs', JSON.stringify(guard));
+         }
+         
+        }
+      
+      verify ();
+
+    }
+
+    function verify (){
+      var guard = JSON.parse(localStorage.getItem("myFavs"));
+      
+      if (guard!=null) {
+        //guard = guard.split(',');
+        console.log(guard);
+        for (var i = 0; i < guard.length; i++) {
+          if (guard[i] == poke.id) {
+            addtofavs.style.display="none";
+            remove.style.display="block";
+          } else {
+            addtofavs.style.display="block";
+            remove.style.display="none";
+
+            }
+          }
+    
+      }else{
       remove.style.display="none";
-    }
-    }
+     }
 
-
+  
 
   }
+}
 
-
-  /*var guardado = localStorage.getItem('datos');
-
-  console.log('objetoObtenido: ', JSON.parse(guardado));*/
-
-let btnsearch = document.getElementById("btnsearch");
-btnsearch.addEventListener ("click", 
-function search_poke() {
+  
+  let btnsearch = document.getElementById("btnsearch");
+  btnsearch.addEventListener ("click", 
+  function search_poke() {
   let input = document.getElementById('mySearch').value 
   input=input.toLowerCase(); 
   let x = document.getElementsByClassName('nombre');
@@ -118,13 +149,12 @@ function search_poke() {
       } 
   }
 
-} 
-)
+})
 
 let input = document.getElementById('mySearch').value;
 input=input.toLowerCase(); 
 let x = document.getElementsByClassName('nombre');
-let content = document.getElementsByClassName('divcontenedor');
+
 
 if (input.length==0) {
   while (section.firstChild) {
@@ -141,3 +171,16 @@ search.addEventListener ("input", function() {
     } 
   }
 })
+/*
+function mostrarFav(poke){
+  for (let i = 0; i < content.length; i++) {
+    if (myFavs.includes(poke.id)) {
+      content[i].style.display="flex";
+    
+    } else {
+      content[i].style.display="none";
+    }
+    
+  }
+}*/
+ 
