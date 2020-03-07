@@ -1,48 +1,109 @@
-body .esconder {
-  display: none; }
-body header {
-  background-color: #FFFFFF;
-  top: 0;
-  width: 100%; }
-body #title {
-  margin-top: 6%;
+body {
+  font-family: "Montserrat", sans-serif; }
+  body .scroll {
+    background-color: #FFFFFF;
+    -webkit-box-shadow: 0 8px 6px -6px grey;
+    -moz-box-shadow: 0 8px 6px -6px grey;
+    box-shadow: 0 8px 6px -6px grey; }
+
+header {
+  display: flex;
+  flex-direction: row;
+  background-color: #ffffff;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0; }
+  header .logotitulo {
+    display: flex;
+    align-items: center; }
+    header .logotitulo h1 {
+      font-size: 25px; }
+  header img, header i {
+    width: 15%;
+    margin: 2%;
+    z-index: 2; }
+  header .iconomenu, header .x {
+    margin: 7%; }
+  header ul {
+    list-style-type: none;
+    display: none;
+    margin: 0;
+    padding: 0% 5%;
+    width: 100%;
+    position: fixed;
+    z-index: 2;
+    top: 12%; }
+  header li {
+    margin: 5% 0%;
+    -webkit-animation: 0.3s linear 0s 1 alternate move_ul;
+    animation: 0.3s linear 0s 1 alternate move_ul; }
+  header input:checked ul {
+    display: block; }
+  header #logo, header #cierre, header #menu {
+    margin: 5% 5% 2% 5%; }
+  header input, header .x {
+    display: none;
+    z-index: 3; }
+  header .check:checked ~ .lista {
+    display: block;
+    background-color: #FFFFFF;
+    top: 10%; }
+  header .check:checked ~ .x {
+    display: inline; }
+  header .check:checked ~ .iconomenu {
+    display: none; }
+  header li a {
+    text-decoration: none;
+    font-family: 'IBM Plex Mono';
+    font-size: 16px;
+    color: #42494c;
+    letter-spacing: 0;
+    line-height: 28px;
+    font-family: "Montserrat", sans-serif; }
+
+#title {
+  margin-top: 16%;
   display: flex;
   align-items: center;
   flex-direction: column; }
-  body #title h1 {
+  #title h1 {
     font-size: 35px; }
-  body #title form {
-    display: inline-flex;
-    align-items: center; }
-    body #title form input {
+  #title form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%; }
+    #title form input {
       border-radius: 20px;
       border: solid 1px #00b5e1;
       box-sizing: border-box;
       margin: 1%;
-      width: 600px;
+      width: 100%;
       height: 50px;
       font-family: 'Montserrat', sans-serif;
       font-size: 12px;
       color: #777777;
       padding: 2%; }
-    body #title form button {
+    #title form button {
       background-image: linear-gradient(-90deg, #00F0B8 0%, #01b0e6 100%);
       width: 120px;
       height: 50px;
+      margin: 5%;
       border: none;
       border-radius: 30px;
       color: #FFFFFF;
       cursor: pointer; }
-body p {
-  color: #000000; }
-body #pokemons {
+
+#pokemons {
   width: 100%;
-  display: grid;
-  grid-template-columns: 250px 250px 250px 250px;
-  grid-gap: 35px;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  margin-top: 5%; }
-  body #pokemons .divcontenedor {
+  align-items: center; }
+  #pokemons .divcontenedor {
     align-items: center;
     justify-content: center;
     display: flex;
@@ -50,14 +111,15 @@ body #pokemons {
     width: 250px;
     height: 280px;
     border-radius: 25px;
+    margin: 4%;
     -webkit-box-shadow: 0px 0px 7px 0px rgba(143, 143, 143, 0.43);
     -moz-box-shadow: 0px 0px 7px 0px rgba(143, 143, 143, 0.43);
     box-shadow: 0px 0px 7px 0px rgba(143, 143, 143, 0.43); }
-    body #pokemons .divcontenedor div {
+    #pokemons .divcontenedor div {
       background-color: #D9F8F3;
       width: max-content;
       border-radius: 50%; }
-    body #pokemons .divcontenedor #addtofavs {
+    #pokemons .divcontenedor #addtofavs {
       background-image: linear-gradient(-90deg, #00F0B8 0%, #01b0e6 100%);
       color: #FFFFFF;
       border-radius: 30px;
@@ -65,7 +127,7 @@ body #pokemons {
       border: none;
       width: 160px;
       height: 50px; }
-    body #pokemons .divcontenedor #remove {
+    #pokemons .divcontenedor #remove {
       background-color: #FFFFFF;
       border: solid 1px #00b5e1;
       border-radius: 30px;
@@ -73,5 +135,78 @@ body #pokemons {
       cursor: pointer;
       width: 160px;
       height: 50px; }
+
+@media screen and (min-width: 768px) {
+  header #logo, header #cierre, header #menu {
+    margin: 3% 5%; }
+  header li {
+    margin: 2% 0%; }
+  header label, header .iconomenu, header .x {
+    margin: 2%; }
+  header .check:checked ~ .lista {
+    top: 5.5%; }
+
+  #title {
+    margin-top: 6%;
+    align-items: center;
+    flex-direction: column; }
+    #title form {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center; }
+      #title form input {
+        width: 600px; }
+      #title form button {
+        background-image: linear-gradient(-90deg, #00F0B8 0%, #01b0e6 100%);
+        width: 120px;
+        height: 50px;
+        margin: 0;
+        border: none;
+        border-radius: 30px;
+        color: #FFFFFF;
+        cursor: pointer; }
+
+  p {
+    color: #000000; }
+
+  #pokemons {
+    display: grid;
+    grid-template-columns: 250px 250px 250px 250px;
+    grid-gap: 35px;
+    justify-content: center;
+    margin-top: 5%; } }
+@media screen and (min-width: 1366px) {
+  body {
+    margin: 0% 3%; }
+    body h1, body h2, body h3, body p, body li {
+      font-family: 'Montserrat', sans-serif;
+      margin: 4%;
+      right: 0; }
+      body h1 *, body h2 *, body h3 *, body p *, body li * {
+        color: #000000; }
+    body h2 {
+      font-size: 35px; }
+    body header label {
+      display: none; }
+    body header ul {
+      display: inline-flex;
+      width: 500px;
+      right: 3%;
+      position: absolute; }
+    body header img {
+      width: 50px;
+      height: 50px;
+      margin: 1% 1% 1% 3%; }
+    body header h1 {
+      margin: 1%; }
+    body header li {
+      font-weight: 500; }
+    body header a {
+      text-decoration: none; }
+    body header .logotitulo {
+      display: flex;
+      align-items: center;
+      margin: 1%; } }
 
 /*# sourceMappingURL=pokedex.css.map */

@@ -63,66 +63,47 @@ for (let i = 1; i <= 150; i++) {
     contenedor.appendChild(remove);
 
 
-    function addfav(){
-      var guard = JSON.parse(localStorage.getItem("myFavs"));
-      console.log(guard);
-      if (guard!==null) {
-        guard= guard + ' ' + poke.id
-        localStorage.setItem('myFavs', JSON.stringify(guard));
-
-
-      }else{
-        guard = poke.id;
-        localStorage.setItem('myFavs', JSON.stringify(guard));
-        var guard = JSON.parse(localStorage.getItem("myFavs"));
-
-      }
-      verify ();
+    function addfav() {
+      var guard = JSON.parse(localStorage.getItem("myFavs")) || [];
+      // console.log(guard);
+      guard.push(poke.id);
+      localStorage.setItem('myFavs', JSON.stringify(guard));
+      verify();
     }
-    
-    function removefav(){
-      var guard = JSON.parse(localStorage.getItem("myFavs"));
+    function removefav() {
+      const guard = JSON.parse(localStorage.getItem("myFavs")) || [];
       
-      console.log("eliminar" + guard)
-      for( var i = 0; i < guard.length; i++){
-
+      const filtered = guard.filter(item => item != poke.id)
+      localStorage.setItem('myFavs', JSON.stringify(filtered));
+      /*for( var i = 0; i < guard.length; i++){
          if ( guard[i] == [poke.id]) { 
           console.log("INGRESO AL IF")
           delete guard.i
           //guard = guard.join(',')
-          localStorage.setItem('myFavs', JSON.stringify(guard));
          }
-         
-        }
-      
-      verify ();
-
+        }*/
+      verify();
     }
-
-    function verify (){
-      var guard = JSON.parse(localStorage.getItem("myFavs"));
-      
-      if (guard!=null) {
-        //guard = guard.split(',');
-        console.log(guard);
-        for (var i = 0; i < guard.length; i++) {
-          if (guard[i] == poke.id) {
-            addtofavs.style.display="none";
-            remove.style.display="block";
+    function verify() {
+      const guard = JSON.parse(localStorage.getItem("myFavs")) || [];
+      console.log(guard);
+      //if (guard.length==0) {guard = []}
+      if (guard && guard.length) {
+        guard.map(item => {
+          if (item == poke.id) {
+            addtofavs.style.display = "none";
+            remove.style.display = "block";
           } else {
-            addtofavs.style.display="block";
-            remove.style.display="none";
-
-            }
+            addtofavs.style.display = "block";
+            remove.style.display = "none";
           }
-    
-      }else{
-      remove.style.display="none";
-     }
-
+        })
+      } else {
+        addtofavs.style.display = "block";
+        remove.style.display = "none";
+      }
+    }
   
-
-  }
 }
 
   

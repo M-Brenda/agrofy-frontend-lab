@@ -1,42 +1,221 @@
 $button-style: linear-gradient(-90deg,  #00F0B8 0%, #01b0e6 100%);
-
+//VISTA MOBILE
+//HEADER
 body{
-    .esconder{
-        display: none;
-    }
-    header{
+    font-family:'Montserrat', sans-serif ;
+    .scroll{
         background-color: #FFFFFF;
-        //position: absolute;
-        top: 0; 
+        -webkit-box-shadow: 0 8px 6px -6px grey;
+        -moz-box-shadow: 0 8px 6px -6px grey;
+        box-shadow: 0 8px 6px -6px grey;
+    }
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    background-color: #ffffff;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0; 
+    .logotitulo{
+        display: flex;
+        align-items: center;
+        h1{
+            font-size: 25px;
+        }
+    }
+    img, i{
+        width: 15%;
+        margin: 2%;
+        z-index: 2;
+    }
+    .iconomenu, .x{
+        margin: 7%;
+    }
+
+    ul{ 
+        list-style-type: none;
+        display: none;
+        margin: 0;
+        padding: 0% 5%;
         width: 100%;
+        position: fixed;
+        z-index: 2;
+        top: 12%;
+    }
+    li{
+        margin: 5% 0%;
+        -webkit-animation: 0.3s linear 0s 1 alternate move_ul;
+        animation: 0.3s linear 0s 1 alternate move_ul;
+    }
+
+    input:checked{
+        ul{
+            display:block;
+        } 
+    }
+
+    #logo, #cierre, #menu{
+        margin: 5% 5% 2% 5%;
+    }
+
+    input, .x{
+        display: none;
+        z-index: 3;
+    }
+
+    .check:checked ~ .lista{
+        display: block;
+        background-color: #FFFFFF;
+        top: 10%;
+    }
+    .check:checked ~ .x{
+        display: inline;
+    }
+
+    .check:checked ~ .iconomenu {
+    display: none;
+    }
+
+    li a {
+        text-decoration: none;
+        font-family: 'IBM Plex Mono';
+        font-size: 16px;
+        color: #42494c;
+        letter-spacing: 0;
+        line-height: 28px;
+        font-family:'Montserrat', sans-serif ;
+    }
+}
+
+#title{
+    margin-top: 16%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    h1{
+        font-size: 35px;
+    }
+    form{       
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+        input{
+            border-radius:20px;
+            border: solid 1px #00b5e1;
+            box-sizing: border-box;
+            margin: 1%;
+            width: 100%;
+            height: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            color: #777777;
+            padding: 2%;
+        }
+        button{
+            background-image: $button-style;
+            width: 120px;
+            height: 50px;
+            margin: 5%;
+            border: none;
+            border-radius:30px;
+            color: #FFFFFF;
+            cursor: pointer;
+        }
+    }
+}
+
+
+#pokemons{
+    width: 100%;
+    display: flex;  
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+    .divcontenedor{
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        width: 250px;
+        height: 280px;
+        border-radius: 25px;
+        margin: 4%;
+        -webkit-box-shadow: 0px 0px 7px 0px rgba(143,143,143,0.43);
+        -moz-box-shadow: 0px 0px 7px 0px rgba(143,143,143,0.43);
+        box-shadow: 0px 0px 7px 0px rgba(143,143,143,0.43);
+        div{
+            background-color: #D9F8F3;
+            width: max-content;
+            border-radius: 50%;
+        }
+        #addtofavs{
+            background-image: $button-style;
+            color:#FFFFFF;
+            border-radius:30px;
+            cursor: pointer;
+            border: none;
+            width: 160px;
+            height: 50px;
+        }
+        #remove{
+            background-color: #FFFFFF;
+            border: solid 1px #00b5e1;
+            border-radius:30px;
+            color: #00b5e1;
+            cursor: pointer;
+            width: 160px;
+            height: 50px;
+
+
+        }
+        
+    }
+}
+
+
+//VISTA TABLET
+@media screen and (min-width:768px) {
+    header{
+        #logo, #cierre, #menu {
+            margin: 3% 5%;
+        }
+        li {
+            margin: 2% 0%;
+        }
+        label, .iconomenu, .x{
+            margin: 2%;
+        }
+
+        .check:checked ~ .lista {
+            top: 5.5%;
+    }
     }
     #title{
         margin-top: 6%;
-        display: flex;
         align-items: center;
         flex-direction: column;
-        h1{
-            font-size: 35px;
-        }
+        
         form{       
-            display: inline-flex;
+            display: flex;
+            flex-direction: row;
             align-items: center;
+            justify-content: center;
             input{
-                border-radius:20px;
-                border: solid 1px #00b5e1;
-                box-sizing: border-box;
-                margin: 1%;
                 width: 600px;
-                height: 50px;
-                font-family: 'Montserrat', sans-serif;
-                font-size: 12px;
-                color: #777777;
-                padding: 2%;
             }
             button{
                 background-image: $button-style;
                 width: 120px;
                 height: 50px;
+                margin: 0;
                 border: none;
                 border-radius:30px;
                 color: #FFFFFF;
@@ -47,50 +226,65 @@ body{
     p{
         color: #000000;
     }
-    #pokemons, #myFavs{
-        width: 100%;
+    #pokemons{
         display: grid;  
         grid-template-columns: 250px 250px 250px 250px;
         grid-gap: 35px;
         justify-content: center;
         margin-top: 5%;
-        .divcontenedor{
-            align-items: center;
-            justify-content: center;
-            display: flex;
-            flex-direction: column;
-            width: 250px;
-            height: 280px;
-            border-radius: 25px;
-            -webkit-box-shadow: 0px 0px 7px 0px rgba(143,143,143,0.43);
-            -moz-box-shadow: 0px 0px 7px 0px rgba(143,143,143,0.43);
-            box-shadow: 0px 0px 7px 0px rgba(143,143,143,0.43);
-            div{
-                background-color: #D9F8F3;
-                width: max-content;
-                border-radius: 50%;
-            }
-            #addtofavs{
-                background-image: $button-style;
-                color:#FFFFFF;
-                border-radius:30px;
-                cursor: pointer;
-                border: none;
-                width: 160px;
-                height: 50px;
-            }
-            #remove{
-                background-color: #FFFFFF;
-                border: solid 1px #00b5e1;
-                border-radius:30px;
-                color: #00b5e1;
-                cursor: pointer;
-                width: 160px;
-                height: 50px;
-
-
-            }
-            
-        }
+        
     }
+}
+
+
+//VISTA DESKTOP
+
+@media screen and (min-width:1366px){
+    body{
+        margin: 0% 3%;
+        h1, h2, h3, p, li{
+            font-family: 'Montserrat', sans-serif;
+            margin: 4%;
+            right: 0;
+            *{
+                color: #000000;
+            }
+        } 
+        h2{
+            font-size: 35px;
+        }
+        header{
+            label{
+                display:none;
+            }
+            ul{
+                display: inline-flex;
+                width: 500px;
+                right: 3%;
+                position: absolute;
+            }
+            img{
+                width: 50px;
+                height: 50px;
+                margin: 1% 1% 1% 3%;
+            }
+
+            h1{
+                margin: 1%;
+            }
+            li{
+                font-weight: 500;
+            }
+            a{
+                text-decoration: none;
+            } 
+            .logotitulo{
+                display: flex;
+                align-items: center;
+                margin: 1%;
+            
+            }
+        }
+
+}
 }
